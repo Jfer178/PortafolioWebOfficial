@@ -282,12 +282,12 @@ function initializeDownloadCV() {
     e.preventDefault();
     
     // Ruta al archivo CV
-    const cvPath = 'img/HojaDeVidaJF.pdf';
+    const cvPath = 'img/JFHojadeVida.pdf';
     
     // Crear un enlace temporal para descargar
     const link = document.createElement('a');
     link.href = cvPath;
-    link.download = 'HojaDeVidaJF.pdf'; // Nombre del archivo al descargar
+    link.download = 'JFHojadeVida.pdf'; // Nombre del archivo al descargar
     link.target = '_blank';
     
     // Agregar al DOM, hacer clic y remover

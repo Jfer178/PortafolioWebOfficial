@@ -13,6 +13,44 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="light-theme">
+  <!-- ========================================== -->
+  <!-- PASSWORD PROTECTION - COMENTADO -->
+  <!-- Para activar la protección por contraseña, descomenta la sección siguiente -->
+  <!-- ========================================== -->
+  <!--
+  <div id="password-protection" class="password-protection">
+    <div class="password-container">
+      <div class="password-content">
+        <div class="password-icon">
+          <i data-lucide="lock"></i>
+        </div>
+        <h2>Acceso Restringido</h2>
+        <p>Este portafolio es privado. Por favor, ingresa la contraseña para continuar.</p>
+        <form id="password-form" class="password-form">
+          <input 
+            type="password" 
+            id="password-input" 
+            placeholder="Ingresa la contraseña" 
+            required 
+            autofocus
+            autocomplete="off"
+          >
+          <button type="submit" class="password-submit-btn">
+            <span>Acceder</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </form>
+        <div id="password-error" class="password-error hidden">
+          <i data-lucide="alert-circle"></i>
+          <span>Contraseña incorrecta. Intenta nuevamente.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Main Content -->
+  <div id="main-content" class="main-content">
   <!-- Navbar -->
   <header class="navbar">
     <div class="navbar-container">
@@ -592,7 +630,11 @@
   </footer>
 
   <div class="theme-transition-overlay" id="theme-transition-overlay"></div>
+  </div> <!-- End main-content -->
   <script src="script.js"></script>
+  <!-- PASSWORD PROTECTION SCRIPT - COMENTADO -->
+  <!-- Para activar la protección, descomenta la siguiente línea -->
+  <!-- <script src="password-protection.js"></script> -->
 </body>
 
 </html>
