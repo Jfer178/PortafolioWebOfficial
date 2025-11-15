@@ -599,14 +599,19 @@
         <h3>Descargar Hoja de Vida</h3>
         <p>Este documento es privado. Por favor, ingresa la contraseña para descargarlo.</p>
         <form id="cv-password-form" class="cv-password-form">
-          <input 
-            type="password" 
-            id="cv-password-input" 
-            placeholder="Ingresa la contraseña" 
-            required 
-            autofocus
-            autocomplete="off"
-          >
+          <div class="cv-password-input-wrapper">
+            <input 
+              type="password" 
+              id="cv-password-input" 
+              placeholder="Ingresa la contraseña" 
+              required 
+              autofocus
+              autocomplete="off"
+            >
+            <button type="button" class="cv-password-toggle" id="cv-password-toggle" aria-label="Mostrar/Ocultar contraseña">
+              <i data-lucide="eye" id="cv-password-eye-icon"></i>
+            </button>
+          </div>
           <button type="submit" class="cv-password-submit-btn">
             <span>Descargar</span>
             <i data-lucide="download"></i>

@@ -285,6 +285,8 @@ function initializeDownloadCV() {
   const cvPasswordInput = document.getElementById('cv-password-input');
   const cvPasswordError = document.getElementById('cv-password-error');
   const cvModalOverlay = document.querySelector('.cv-modal-overlay');
+  const cvPasswordToggle = document.getElementById('cv-password-toggle');
+  const cvPasswordEyeIcon = document.getElementById('cv-password-eye-icon');
   
   // Función para mostrar el modal de contraseña
   const showPasswordModal = (e) => {
@@ -315,6 +317,24 @@ function initializeDownloadCV() {
     }
   };
   
+  // Función para mostrar/ocultar contraseña
+  const togglePasswordVisibility = () => {
+    if (cvPasswordInput && cvPasswordEyeIcon) {
+      if (cvPasswordInput.type === 'password') {
+        cvPasswordInput.type = 'text';
+        cvPasswordEyeIcon.setAttribute('data-lucide', 'eye-off');
+      } else {
+        cvPasswordInput.type = 'password';
+        cvPasswordEyeIcon.setAttribute('data-lucide', 'eye');
+      }
+      
+      // Actualizar iconos de Lucide
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    }
+  };
+
   // Función para cerrar el modal
   const closePasswordModal = () => {
     if (cvPasswordModal) {
@@ -324,6 +344,17 @@ function initializeDownloadCV() {
       // Limpiar el formulario
       if (cvPasswordForm) {
         cvPasswordForm.reset();
+      }
+      
+      // Resetear visibilidad de contraseña
+      if (cvPasswordInput) {
+        cvPasswordInput.type = 'password';
+      }
+      if (cvPasswordEyeIcon) {
+        cvPasswordEyeIcon.setAttribute('data-lucide', 'eye');
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
       }
       
       if (cvPasswordError) {
@@ -416,6 +447,10 @@ function initializeDownloadCV() {
   
   if (cvModalOverlay) {
     cvModalOverlay.addEventListener('click', closePasswordModal);
+  }
+  
+  if (cvPasswordToggle) {
+    cvPasswordToggle.addEventListener('click', togglePasswordVisibility);
   }
   
   // Cerrar modal con tecla Escape

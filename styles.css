@@ -1903,9 +1903,14 @@ body.dark-theme .moon-img {
   gap: 1rem;
 }
 
+.cv-password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 #cv-password-input {
   width: 100%;
-  padding: 0.875rem 1.125rem;
+  padding: 0.875rem 3rem 0.875rem 1.125rem;
   border: 2px solid var(--border-color);
   border-radius: 12px;
   font-size: 1rem;
@@ -1923,6 +1928,38 @@ body.dark-theme .moon-img {
 
 .dark-theme #cv-password-input {
   background: var(--bg-tertiary);
+}
+
+.cv-password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.cv-password-toggle:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.cv-password-toggle:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.cv-password-toggle i {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
 }
 
 .cv-password-submit-btn {
