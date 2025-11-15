@@ -1784,89 +1784,128 @@ body.dark-theme .moon-img {
 }
 
 /* ========================================== */
-/* PASSWORD PROTECTION STYLES - COMENTADO */
-/* Para activar la protección, descomenta esta sección */
+/* CV PASSWORD MODAL STYLES */
+/* Modal de contraseña para descargar el CV */
 /* ========================================== */
-/*
-.password-protection {
+.cv-password-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10000;
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-.password-protection.hidden {
+.cv-password-modal.hidden {
   display: none;
 }
 
-.password-container {
+.cv-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.cv-modal-container {
+  position: relative;
   width: 100%;
   max-width: 450px;
-  padding: 2rem;
+  padding: 1.5rem;
+  z-index: 1;
 }
 
-.password-content {
+.cv-modal-content {
   background: var(--bg-primary);
   border-radius: 20px;
-  padding: 3rem 2.5rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   text-align: center;
-  animation: slideUp 0.5s ease;
+  position: relative;
+  animation: modalSlideUp 0.4s ease;
 }
 
-@keyframes slideUp {
+@keyframes modalSlideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(30px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-.password-icon {
+.cv-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: var(--bg-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.cv-modal-close:hover {
+  background: var(--bg-tertiary);
+  transform: rotate(90deg);
+  color: var(--text-primary);
+}
+
+.cv-modal-close i {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.cv-modal-icon {
   margin-bottom: 1.5rem;
 }
 
-.password-icon i {
-  width: 60px;
-  height: 60px;
+.cv-modal-icon i {
+  width: 50px;
+  height: 50px;
   color: var(--accent-primary);
 }
 
-.password-content h2 {
-  font-size: 1.75rem;
+.cv-modal-content h3 {
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   font-family: 'Inter', sans-serif;
 }
 
-.password-content p {
+.cv-modal-content p {
   color: var(--text-secondary);
-  margin-bottom: 2rem;
-  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
   line-height: 1.6;
 }
 
-.password-form {
+.cv-password-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-#password-input {
+#cv-password-input {
   width: 100%;
-  padding: 1rem 1.25rem;
+  padding: 0.875rem 1.125rem;
   border: 2px solid var(--border-color);
   border-radius: 12px;
   font-size: 1rem;
@@ -1876,23 +1915,23 @@ body.dark-theme .moon-img {
   font-family: 'Inter', sans-serif;
 }
 
-#password-input:focus {
+#cv-password-input:focus {
   outline: none;
   border-color: var(--accent-primary);
   box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 }
 
-.dark-theme #password-input {
+.dark-theme #cv-password-input {
   background: var(--bg-tertiary);
 }
 
-.password-submit-btn {
+.cv-password-submit-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 1rem 2rem;
-  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #10b981, #06b6d4);
   color: white;
   border: none;
   border-radius: 12px;
@@ -1903,16 +1942,17 @@ body.dark-theme .moon-img {
   font-family: 'Inter', sans-serif;
 }
 
-.password-submit-btn:hover {
+.cv-password-submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+  background: linear-gradient(135deg, #059669, #0891b2);
 }
 
-.password-submit-btn:active {
+.cv-password-submit-btn:active {
   transform: translateY(0);
 }
 
-.password-submit-btn.shake {
+.cv-password-submit-btn.shake {
   animation: shake 0.5s ease;
 }
 
@@ -1922,12 +1962,12 @@ body.dark-theme .moon-img {
   75% { transform: translateX(10px); }
 }
 
-.password-submit-btn i {
-  width: 20px;
-  height: 20px;
+.cv-password-submit-btn i {
+  width: 18px;
+  height: 18px;
 }
 
-.password-error {
+.cv-password-error {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1937,7 +1977,7 @@ body.dark-theme .moon-img {
   background: rgba(239, 68, 68, 0.1);
   color: #ef4444;
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   animation: slideDown 0.3s ease;
 }
 
@@ -1952,47 +1992,37 @@ body.dark-theme .moon-img {
   }
 }
 
-.password-error.hidden {
+.cv-password-error.hidden {
   display: none;
 }
 
-.password-error i {
-  width: 18px;
-  height: 18px;
+.cv-password-error i {
+  width: 16px;
+  height: 16px;
 }
 
-.main-content {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-.main-content.hidden {
-  display: none;
-}
-
-/* Dark theme adjustments for password protection */
-.dark-theme .password-content {
+/* Dark theme adjustments for CV modal */
+.dark-theme .cv-modal-content {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
 }
 
-/* Responsive design for password protection */
+/* Responsive design for CV modal */
 @media (max-width: 768px) {
-  .password-container {
-    padding: 1.5rem;
+  .cv-modal-container {
+    padding: 1rem;
   }
   
-  .password-content {
+  .cv-modal-content {
     padding: 2rem 1.5rem;
   }
   
-  .password-content h2 {
-    font-size: 1.5rem;
+  .cv-modal-content h3 {
+    font-size: 1.25rem;
   }
   
-  .password-icon i {
-    width: 50px;
-    height: 50px;
+  .cv-modal-icon i {
+    width: 45px;
+    height: 45px;
   }
 }
-*/

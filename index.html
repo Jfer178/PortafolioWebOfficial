@@ -13,41 +13,6 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="light-theme">
-  <!-- ========================================== -->
-  <!-- PASSWORD PROTECTION - COMENTADO -->
-  <!-- Para activar la protección por contraseña, descomenta la sección siguiente -->
-  <!-- ========================================== -->
-  <!--
-  <div id="password-protection" class="password-protection">
-    <div class="password-container">
-      <div class="password-content">
-        <div class="password-icon">
-          <i data-lucide="lock"></i>
-        </div>
-        <h2>Acceso Restringido</h2>
-        <p>Este portafolio es privado. Por favor, ingresa la contraseña para continuar.</p>
-        <form id="password-form" class="password-form">
-          <input 
-            type="password" 
-            id="password-input" 
-            placeholder="Ingresa la contraseña" 
-            required 
-            autofocus
-            autocomplete="off"
-          >
-          <button type="submit" class="password-submit-btn">
-            <span>Acceder</span>
-            <i data-lucide="arrow-right"></i>
-          </button>
-        </form>
-        <div id="password-error" class="password-error hidden">
-          <i data-lucide="alert-circle"></i>
-          <span>Contraseña incorrecta. Intenta nuevamente.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  -->
 
   <!-- Main Content -->
   <div id="main-content" class="main-content">
@@ -388,19 +353,7 @@
       </div>
 
       <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>Bachillerato</h3>
-            <h4>Colegio Gabriel García Márquez</h4>
-            <div class="timeline-meta">
-              <span><i data-lucide="calendar"></i> 2016 - 2022</span>
-              <span><i data-lucide="map-pin"></i> Barranquilla, Colombia</span>
-            </div>
-            <p>Bachillerato en colegio Gabriel García Márquez</p>
-          </div>
-        </div>
-
+    
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
@@ -631,10 +584,43 @@
 
   <div class="theme-transition-overlay" id="theme-transition-overlay"></div>
   </div> <!-- End main-content -->
+
+  <!-- Modal de contraseña para descargar CV -->
+  <div id="cv-password-modal" class="cv-password-modal hidden">
+    <div class="cv-modal-overlay"></div>
+    <div class="cv-modal-container">
+      <div class="cv-modal-content">
+        <button class="cv-modal-close" id="cv-modal-close">
+          <i data-lucide="x"></i>
+        </button>
+        <div class="cv-modal-icon">
+          <i data-lucide="lock"></i>
+        </div>
+        <h3>Descargar Hoja de Vida</h3>
+        <p>Este documento es privado. Por favor, ingresa la contraseña para descargarlo.</p>
+        <form id="cv-password-form" class="cv-password-form">
+          <input 
+            type="password" 
+            id="cv-password-input" 
+            placeholder="Ingresa la contraseña" 
+            required 
+            autofocus
+            autocomplete="off"
+          >
+          <button type="submit" class="cv-password-submit-btn">
+            <span>Descargar</span>
+            <i data-lucide="download"></i>
+          </button>
+        </form>
+        <div id="cv-password-error" class="cv-password-error hidden">
+          <i data-lucide="alert-circle"></i>
+          <span>Contraseña incorrecta. Intenta nuevamente.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
-  <!-- PASSWORD PROTECTION SCRIPT - COMENTADO -->
-  <!-- Para activar la protección, descomenta la siguiente línea -->
-  <!-- <script src="password-protection.js"></script> -->
 </body>
 
 </html>

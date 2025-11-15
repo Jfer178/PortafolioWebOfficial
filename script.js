@@ -274,20 +274,73 @@ function initializeForm() {
 }
 
 function initializeDownloadCV() {
+  // Contraseña para descargar el CV
+  const CV_PASSWORD = 'portafoliosky1234';
+  
   const downloadBtn = document.getElementById('download-cv-btn');
   const mobileDownloadBtn = document.getElementById('mobile-download-cv-btn');
+  const cvPasswordModal = document.getElementById('cv-password-modal');
+  const cvModalClose = document.getElementById('cv-modal-close');
+  const cvPasswordForm = document.getElementById('cv-password-form');
+  const cvPasswordInput = document.getElementById('cv-password-input');
+  const cvPasswordError = document.getElementById('cv-password-error');
+  const cvModalOverlay = document.querySelector('.cv-modal-overlay');
   
-  // Función para manejar la descarga
-  const handleDownload = (e) => {
+  // Función para mostrar el modal de contraseña
+  const showPasswordModal = (e) => {
     e.preventDefault();
     
+    if (cvPasswordModal) {
+      cvPasswordModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      
+      // Enfocar el input después de mostrar el modal
+      setTimeout(() => {
+        if (cvPasswordInput) {
+          cvPasswordInput.focus();
+        }
+      }, 100);
+      
+      // Cerrar el menú móvil si está abierto
+      if (isMobileMenuOpen) {
+        closeMobileMenu();
+      }
+    }
+    
+    // Inicializar iconos de Lucide si están disponibles
+    if (typeof lucide !== 'undefined') {
+      setTimeout(() => {
+        lucide.createIcons();
+      }, 100);
+    }
+  };
+  
+  // Función para cerrar el modal
+  const closePasswordModal = () => {
+    if (cvPasswordModal) {
+      cvPasswordModal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+      
+      // Limpiar el formulario
+      if (cvPasswordForm) {
+        cvPasswordForm.reset();
+      }
+      
+      if (cvPasswordError) {
+        cvPasswordError.classList.add('hidden');
+      }
+    }
+  };
+  
+  // Función para descargar el CV (solo si la contraseña es correcta)
+  const downloadCV = () => {
     // Ruta al archivo CV
     const cvPath = 'img/JFHojadeVida.pdf';
     
     // Crear un enlace temporal para descargar
     const link = document.createElement('a');
     link.href = cvPath;
-    link.download = 'JFHojadeVida.pdf'; // Nombre del archivo al descargar
+    link.download = 'JFHojadeVida.pdf';
     link.target = '_blank';
     
     // Agregar al DOM, hacer clic y remover
@@ -295,12 +348,10 @@ function initializeDownloadCV() {
     link.click();
     document.body.removeChild(link);
     
-    // Cerrar el menú móvil si está abierto
-    if (isMobileMenuOpen) {
-      closeMobileMenu();
-    }
+    // Cerrar el modal
+    closePasswordModal();
     
-    // Feedback visual opcional
+    // Feedback visual
     if (downloadBtn) {
       downloadBtn.style.transform = 'scale(0.95)';
       setTimeout(() => {
@@ -316,13 +367,63 @@ function initializeDownloadCV() {
     }
   };
   
+  // Manejar el envío del formulario de contraseña
+  const handlePasswordSubmit = (e) => {
+    e.preventDefault();
+    
+    const enteredPassword = cvPasswordInput ? cvPasswordInput.value.trim() : '';
+    const submitBtn = document.querySelector('.cv-password-submit-btn');
+    
+    // Verificar contraseña
+    if (enteredPassword === CV_PASSWORD) {
+      // Contraseña correcta
+      cvPasswordError.classList.add('hidden');
+      downloadCV();
+    } else {
+      // Contraseña incorrecta
+      if (cvPasswordInput) {
+        cvPasswordInput.value = '';
+        cvPasswordInput.focus();
+      }
+      
+      cvPasswordError.classList.remove('hidden');
+      
+      if (submitBtn) {
+        submitBtn.classList.add('shake');
+        setTimeout(() => {
+          submitBtn.classList.remove('shake');
+        }, 500);
+      }
+    }
+  };
+  
+  // Event listeners
   if (downloadBtn) {
-    downloadBtn.addEventListener('click', handleDownload);
+    downloadBtn.addEventListener('click', showPasswordModal);
   }
   
   if (mobileDownloadBtn) {
-    mobileDownloadBtn.addEventListener('click', handleDownload);
+    mobileDownloadBtn.addEventListener('click', showPasswordModal);
   }
+  
+  if (cvPasswordForm) {
+    cvPasswordForm.addEventListener('submit', handlePasswordSubmit);
+  }
+  
+  if (cvModalClose) {
+    cvModalClose.addEventListener('click', closePasswordModal);
+  }
+  
+  if (cvModalOverlay) {
+    cvModalOverlay.addEventListener('click', closePasswordModal);
+  }
+  
+  // Cerrar modal con tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && cvPasswordModal && !cvPasswordModal.classList.contains('hidden')) {
+      closePasswordModal();
+    }
+  });
   
   // Asegurar que los iconos se inicialicen
   if (typeof lucide !== 'undefined') {
@@ -426,10 +527,8 @@ function optimizeVideo() {
     
     // Asegurar que el video cargue en alta calidad
     video.addEventListener('loadedmetadata', function() {
-      // Forzar la mejor calidad si está disponible
-      if (video.videoWidth && video.videoHeight) {
-        console.log('Video dimensions:', video.videoWidth, 'x', video.videoHeight);
-      }
+      // Video cargado correctamente
+      // Dimensiones: video.videoWidth x video.videoHeight
     });
     
     video.playbackRate = 0.7;
@@ -469,19 +568,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-function preloadImages() {
-  const criticalImages = [
-    'https://via.placeholder.com/600x600',
-    'https://via.placeholder.com/800x600'
-  ];
-  
-  criticalImages.forEach(src => {
-    const img = new Image();
-    img.src = src;
-  });
-}
-
-document.addEventListener('DOMContentLoaded', preloadImages);
+// Función de preload de imágenes eliminada - ya no se necesitan imágenes de placeholder
 
 function initializeLazyLoading() {
   const lazyImages = document.querySelectorAll('img[data-src]');
@@ -508,17 +595,24 @@ function initializeLazyLoading() {
 }
 
 function handleMissingElements() {
-  const requiredElements = [
-    'navbar', 'theme-toggle', 'mobile-menu-toggle', 
+  // Verificar elementos requeridos por ID y clase
+  const requiredElementsById = [
+    'theme-toggle', 'mobile-menu-toggle', 
     'contact-form', 'scroll-to-top'
   ];
   
-  requiredElements.forEach(id => {
+  requiredElementsById.forEach(id => {
     const element = document.getElementById(id);
     if (!element) {
       console.warn(`Required element with id "${id}" not found`);
     }
   });
+  
+  // Verificar navbar por clase (no tiene ID)
+  const navbar = document.querySelector('.navbar');
+  if (!navbar) {
+    console.warn('Required element with class "navbar" not found');
+  }
 }
 
 document.addEventListener('DOMContentLoaded', handleMissingElements);
