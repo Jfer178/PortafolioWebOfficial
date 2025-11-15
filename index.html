@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="img/ImagenFotoPortafolio/FotoPortafolioGorra.jpeg">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark-theme">
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="#hero" class="logo">Jeremy Fontalvo</a>
+
+      <nav class="desktop-nav">
+        <div class="nav-links">
+          <a href="#hero" class="nav-link active" data-section="hero">Inicio</a>
+          <a href="#about" class="nav-link" data-section="about">Sobre Mí</a>
+          <a href="#projects" class="nav-link" data-section="projects">Proyectos</a>
+          <a href="#technologies" class="nav-link" data-section="technologies">Tecnologías</a>
+          <a href="#education" class="nav-link" data-section="education">Educación</a>
+          <a href="#languages" class="nav-link" data-section="languages">Lenguajes</a>
+          <a href="#contact" class="nav-link" data-section="contact">Contacto</a>
+          <div class="active-indicator"></div>
+        </div>
+
+        <a href="#" id="download-cv-btn" class="download-cv-btn" download>
+          <i data-lucide="download"></i>
+          <span>Descargar CV</span>
+        </a>
+
+        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+          <img src="img/IconoCV/dom (1).png" class="theme-img sun-img" alt="Sol">
+          <img src="img/IconoCV/luna-llena.png" class="theme-img moon-img" alt="Luna">
+        </button>
+      </nav>
+
+      <div class="mobile-controls">
+        <button id="mobile-theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+          <img src="img/IconoCV/dom (1).png" class="theme-img sun-img" alt="Sol">
+          <img src="img/IconoCV/luna-llena.png" class="theme-img moon-img" alt="Luna">
+        </button>
+
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+          <i data-lucide="menu" class="menu-icon"></i>
+          <i data-lucide="x" class="close-icon hidden"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-container">
+      <a href="#hero" class="mobile-nav-link active" data-section="hero">Inicio</a>
+      <a href="#about" class="mobile-nav-link" data-section="about">Sobre Mí</a>
+      <a href="#projects" class="mobile-nav-link" data-section="projects">Proyectos</a>
+      <a href="#technologies" class="mobile-nav-link" data-section="technologies">Tecnologías</a>
+      <a href="#education" class="mobile-nav-link" data-section="education">Educación</a>
+      <a href="#languages" class="mobile-nav-link" data-section="languages">Lenguajes</a>
+      <a href="#contact" class="mobile-nav-link" data-section="contact">Contacto</a>
+      <a href="#" id="mobile-download-cv-btn" class="mobile-download-cv-btn" download>
+        <i data-lucide="download"></i>
+        <span>Descargar CV</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="video-background">
+      <div class="overlay"></div>
+      <video autoplay loop muted playsinline>
+        <source src="img/FondosCreativos/VideoPrincipal.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+      </video>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="hero-title">DESARROLLADOR DE SOFTWARE</h1>
+      <p class="hero-subtitle">Un joven desarrollador de software que combina creatividad, innovación y tecnología para
+        construir experiencias digitales que sorprenden y funcionan.</p>
+      <a href="#about" class="glow-on-hover" id="hero-button">Conoceme Más</a>
+    </div>
+
+    <div class="scroll-indicator">
+      <i data-lucide="arrow-down"></i>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Sobre Mí</h2>
+        <div class="heading-line"></div>
+      </div>
+
+      <div class="about-content">
+        <div class="about-image">
+          <div class="image-glow"></div>
+          <img src="img/ImagenFotoPortafolio/FotoPortafolioGorra.jpeg" alt="Foto de perfil">
+        </div>
+
+        <div class="about-text">
+          <h3>Desarrollador de Software</h3>
+          <p>Soy <strong>Jeremy Fontalvo</strong>, desarrollador de software y estudiante de <strong>Ingeniería de Sistemas</strong> de 19 años. Me
+            apasiona crear soluciones tecnológicas que combinan eficiencia, escalabilidad y un diseño atractivo para el
+            usuario.
+            <br>
+            <br>
+            Desde mis primeros proyectos, he buscado no solo aprender lenguajes y herramientas, sino también aplicarlos
+            para resolver problemas reales.
+            <br>
+            <strong>Mi objetivo es seguir creciendo como profesional, desarrollando aplicaciones web y de escritorio que marquen
+            la diferencia.</strong>
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <i data-lucide="code-2"></i>
+              <div class="stat-value">1+</div>
+              <div class="stat-label">Años de experiencia</div>
+            </div>
+            <div class="stat">
+              <i data-lucide="briefcase"></i>
+              <div class="stat-value">3+</div>
+              <div class="stat-label">Proyectos completados</div>
+            </div>
+            <div class="stat">
+              <i data-lucide="graduation-cap"></i>
+              <div class="stat-value">5+</div>
+              <div class="stat-label">Tecnologías dominadas</div>
+            </div>
+          </div>
+
+          <div class="skills"></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Proyectos</h2>
+        <p>Aqui tienes algunos de mis proyectos mas destacados en el transcurso de mi carrera profesional</p>
+        <div class="heading-line"></div>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="img/FondosCreativos/PantGrenity.png" alt="Greenity">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/Jfer178" class="project-link"><i data-lucide="github"></i></a>
+                <a href="https://greenity.netlify.app/" class="project-link"><i data-lucide="external-link"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Greenity</h3>
+            <p>Plataforma con modelo Scrapping Web, para sitios de Reciclaje</p>
+            <div class="project-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Python</span>
+              <span>Bootstrap</span>
+              <span>MySQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="img/FondosCreativos/PantSIHUL.png" alt="Dashboard Analytics">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/Jfer178" class="project-link"><i data-lucide="github"></i></a>
+                <a href="https://sihul.netlify.app/" class="project-link"><i data-lucide="external-link"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>SIHUL: Sistema para la Gestión de Espacios Académicos Universitarios</h3>
+            <p>Sistema de Planeación y Gestión de Espacios Académicos Universitarios para la gestión de reservas de espacios academicos.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>Express</span>
+              <span>PostgreSQL</span>
+              <span>Tailwind CSS</span>
+              <span>Python</span>
+              <span>Docker</span>
+              <span>IA(Chatbot)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="img/FondosCreativos/PantOlivia.jpeg" alt="Social Media App">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/Jfer178" class="project-link"><i data-lucide="github"></i></a>
+                <a href="https://olivia.netlify.app/" class="project-link"><i data-lucide="external-link"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>OLIVIA - Sistema de Inventario Farmaceutico</h3>
+            <p>Sistema de gestión de inventario para la gestión de productos y ventas de una empresa farmaceutica.</p>
+            <div class="project-tags">
+              <span>PHP</span>
+              <span>MySQL</span>
+              <span>JavaScript</span>
+              <span>Python</span>
+              <span>PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="img/FondosCreativos/PantREST.png" alt="Task Management System">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://github.com/Jfer178" class="project-link"><i data-lucide="github"></i></a>
+                <a href="https://rest.netlify.app/" class="project-link"><i data-lucide="external-link"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>REST: Aplicación Móvil de Acompañamiento Emocional Universitario</h3>
+            <p>Aplicación Móvil de Acompañamiento Emocional Universitario para el acompañamiento emocional de los estudiantes universitarios.</p>
+            <div class="project-tags">
+              <span>Flutter</span>
+              <span>Dart</span>
+              <span>Firebase</span>
+              <span>Python</span>
+              <span>IA(Chatbot)</span>
+              <span>API</span>
+              <span>Docker</span>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies Section -->
+  <section id="technologies" class="technologies">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Tecnologías</h2>
+        <p>Herramientas y tecnologías con las que trabajo diariamente</p>
+        <div class="heading-line"></div>
+      </div>
+  
+      <div class="tech-categories">
+  
+        <!-- FRONTEND -->
+        <div class="tech-category">
+          <h3>Frontend</h3>
+  
+          <!-- Lenguajes / Markup -->
+          <h4>Lenguajes</h4>
+          <div class="tech-grid">
+            <div class="tech-item"><img src="img/IconoCV/919827.png" alt="HTML"></div>
+            <div class="tech-item"><img src="img/IconoCV/919826.png" alt="CSS"></div>
+            <div class="tech-item"><img src="img/IconoCV/JavaScript-logo.png" alt="JavaScript"></div>
+          </div>
+
+          <!-- Frameworks / Librerías -->
+          <h4>Frameworks / Librerías</h4>
+          <div class="tech-grid">
+            <div class="tech-item"><img src="img/IconoCV/reactjs_logo_icon_170805.png" alt="React"></div>
+            <div class="tech-item"><img src="img/IconoCV/Vue.js_Logo_2.svg.png" alt="Vue.js"></div>
+            <div class="tech-item"><img src="img/IconoCV/bootstrap-original-wordmark.png" alt="Bootstrap"></div>
+            <div class="tech-item"><img src="img/IconoCV/tailwind-css-logo-rounded-free-png.webp" alt="Tailwind CSS"></div>
+          </div>
+        </div>
+  
+        <!-- BACKEND -->
+        <div class="tech-category">
+          <h3>Backend</h3>
+  
+          <!-- Lenguajes -->
+          <h4>Lenguajes</h4>
+          <div class="tech-grid">
+            <div class="tech-item"><img src="img/IconoCV/Python-logo-notext.svg.png" alt="Python"></div>
+            <div class="tech-item"><img src="img/IconoCV/Node.js_logo.svg.png" alt="Node.js"></div>
+            <div class="tech-item"><img src="img/IconoCV/PHP-logo.svg.png" alt="PHP"></div>
+            <div class="tech-item"><img src="img/IconoCV/Java-logo.png" alt="Java"></div>
+          </div>
+
+          <!-- Frameworks -->
+          <h4>Frameworks</h4>
+          <div class="tech-grid">
+            <div class="tech-item"><img src="img/IconoCV/Django-Logo.png" alt="Django"></div>
+            <div class="tech-item"><img src="img/IconoCV/Logo Express.js.png" alt="Express.js"></div>
+          </div>
+        </div>
+  
+        <!-- BASE DE DATOS -->
+        <div class="tech-category">
+          <h3>Bases de datos</h3>
+          <div class="tech-grid">
+            <div class="tech-item"><img src="img/IconoCV/Postgresql_elephant.svg.png" alt="PostgreSQL"></div>
+            <div class="tech-item"><img src="img/IconoCV/Mysql_logo.png" alt="MySQL"></div>
+            <div class="tech-item"><img src="img/IconoCV/mariadb-logo-vert_blue-transparent.png" alt="MariaDB"></div>
+            <div class="tech-item"><img src="img/IconoCV/MongoDB_Logo.svg.png" alt="MongoDB"></div>
+            <div class="tech-item"><img src="img/IconoCV/oracle-database-logo.png" alt="Oracle Database"></div>
+          </div>
+        </div>
+
+        <!-- HERRAMIENTAS / DEVOPS -->
+        <div class="tech-category">
+          <h3>Herramientas / DevOps</h3>
+          <div class="tech-grid">
+            <div class="tech-item"><img src="img/IconoCV/Git-logo.svg.png" alt="Git"></div>
+            <div class="tech-item"><img src="img/IconoCV/GitHub-Logo.png" alt="GitHub"></div>
+            <div class="tech-item"><img src="img/IconoCV/Docker-Logo-2013.png" alt="Docker"></div>
+            <div class="tech-item"><img src="img/IconoCV/figma_logo_icon_147289.png" alt="Figma"></div>
+          </div>
+        </div>
+      </div><!-- /.tech-categories -->
+    </div><!-- /.container -->
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="education">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Educación</h2>
+        <p>Mi formación académica y profesional</p>
+        <div class="heading-line"></div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Bachillerato</h3>
+            <h4>Colegio Gabriel García Márquez</h4>
+            <div class="timeline-meta">
+              <span><i data-lucide="calendar"></i> 2016 - 2022</span>
+              <span><i data-lucide="map-pin"></i> Barranquilla, Colombia</span>
+            </div>
+            <p>Bachillerato en colegio Gabriel García Márquez</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Ingeniería de Sistemas</h3>
+            <h4>Universidad de Libre de Colombia</h4>
+            <div class="timeline-meta">
+              <span><i data-lucide="calendar"></i> 2023 - 2026</span>
+              <span><i data-lucide="map-pin"></i> Barranquilla, Colombia</span>
+            </div>
+            <p>Ingeniería de Sistemas en la Universidad de Libre de Colombia</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Nivel De Ingles - B1</h3>
+            <h4>Alianza Canadiense</h4>
+            <div class="timeline-meta">
+              <span><i data-lucide="calendar"></i> 2024 - 2026</span>
+              <span><i data-lucide="map-pin"></i> Barranquilla, Colombia</span>
+            </div>
+            <p>Ingeniería de Sistemas en la Universidad de Libre de Colombia</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages Section -->
+  <section id="languages" class="languages">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Lenguajes de Programación</h2>
+        <p>Lenguajes de programación que he utilizado en mi desarrollo profesional </p>
+        <div class="heading-line"></div>
+      </div>
+
+      <div class="languages-list">
+        <div class="language-item">
+          <div class="language-header">
+            <span>HTML</span>
+            <span class="percentage">90%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-width="90"></div>
+          </div>
+        </div>
+
+        <div class="language-item">
+          <div class="language-header">
+            <span>CSS</span>
+            <span class="percentage">80%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-width="80"></div>
+          </div>
+        </div>
+
+        <div class="language-item">
+          <div class="language-header">
+            <span>Python</span>
+            <span class="percentage">75%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-width="75"></div>
+          </div>
+        </div>
+
+        <div class="language-item">
+          <div class="language-header">
+            <span>PHP</span>
+            <span class="percentage">70%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-width="70"></div>
+          </div>
+        </div>
+
+        <div class="language-item">
+          <div class="language-header">
+            <span>Java</span>
+            <span class="percentage">70%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-width="70"></div>
+          </div>
+        </div>
+
+        <div class="language-item">
+          <div class="language-header">
+            <span>TypeScript</span>
+            <span class="percentage">60%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-width="80"></div>
+          </div>
+        </div>
+
+        <div class="language-item">
+          <div class="language-header">
+            <span>C#</span>
+            <span class="percentage">65%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-width="65"></div>
+          </div>
+        </div>
+
+        <div class="language-item">
+          <div class="language-header">
+            <span>JavaScript</span>
+            <span class="percentage">80%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-width="80"></div>
+          </div>
+        </div>
+
+        <div class="language-item">
+          <div class="language-header">
+            <span>C++</span>
+            <span class="percentage">50%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" data-width="50"></div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Contacto</h2>
+        <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+        <div class="heading-line"></div>
+      </div>
+
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Información de contacto</h3>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i data-lucide="mail"></i>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>jeremy.fontalvo@unilibre.edu.co</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i data-lucide="phone"></i>
+            </div>
+            <div>
+              <h4>Teléfono</h4>
+              <p>+1 (123) 456-7890</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i data-lucide="map-pin"></i>
+            </div>
+            <div>
+              <h4>Ubicación</h4>
+              <p>Barranquilla, Colombia</p>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-link"><i data-lucide="github"></i></a>
+            <a href="#" class="social-link"><i data-lucide="linkedin"></i></a>
+            <a href="#" class="social-link"><i data-lucide="twitter"></i></a>
+            <a href="#" class="social-link"><i data-lucide="instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>Envíame un mensaje</h3>
+          <form id="contact-form">
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Nombre" required>
+              <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <input type="text" name="subject" placeholder="Asunto" required>
+            <textarea name="message" placeholder="Mensaje" rows="5" required></textarea>
+            <button type="submit" class="submit-btn">
+              <i data-lucide="send"></i>
+              <span>Enviar mensaje</span>
+            </button>
+          </form>
+
+          <div id="form-success" class="form-message success hidden">
+            ¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="#hero" class="logo">Portafolio</a>
+          <p>&copy; 2025 Todos los derechos reservados.
+            <br>
+            <span>Desarrollado por Jeremy Fontalvo</span>
+          </p>
+        </div>
+
+        <button id="scroll-to-top" class="scroll-to-top">
+          <i data-lucide="arrow-up"></i>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <div class="theme-transition-overlay" id="theme-transition-overlay"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
