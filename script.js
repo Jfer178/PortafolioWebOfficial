@@ -275,7 +275,7 @@ function initializeForm() {
 
 function initializeDownloadCV() {
   // Contraseña para descargar el CV
-  const CV_PASSWORD = 'portafoliosky1234';
+  const CV_PASSWORD = 'portafoliosky123@';
   
   const downloadBtn = document.getElementById('download-cv-btn');
   const mobileDownloadBtn = document.getElementById('mobile-download-cv-btn');
@@ -366,12 +366,12 @@ function initializeDownloadCV() {
   // Función para descargar el CV (solo si la contraseña es correcta)
   const downloadCV = () => {
     // Ruta al archivo CV
-    const cvPath = 'img/JFHojadeVida.pdf';
+    const cvPath = 'img/HojaVidadeJeremyF.pdf';
     
     // Crear un enlace temporal para descargar
     const link = document.createElement('a');
     link.href = cvPath;
-    link.download = 'JFHojadeVida.pdf';
+    link.download = 'HojaVidadeJeremyF.pdf';
     link.target = '_blank';
     
     // Agregar al DOM, hacer clic y remover
